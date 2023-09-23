@@ -1,0 +1,1 @@
+[<__main__.personas object at 0x00000275D687ED90>, <__main__.personas object at 0x00000275D687EE50>, <__main__.personas object at 0x00000275D687EF50>, <__main__.personas object at 0x00000275D687F010>]
