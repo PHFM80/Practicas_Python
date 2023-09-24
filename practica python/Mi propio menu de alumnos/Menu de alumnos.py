@@ -29,6 +29,7 @@ def mostrar_alumnos():
         print(alumno.claveAlum, alumno.dni, alumno.nombre, alumno.apellido, alumno.materia, alumno.notas)
 
 def agregar_nota():
+    pass
     
 
 def modificar_nota():
@@ -84,24 +85,26 @@ while True:
       "5. Eliminar un alumno.\n"
       "6. Modificar datos de un alumnos.\n"
       "7. Salir\n")
-    opcion = int(input("Ingrese una opcion: \n"))
-    if opcion == 1:
-        ingresar_alumno()
-    elif opcion == 2:
-        mostrar_alumnos()
-    elif opcion == 3:
-        agregar_nota()
-    elif opcion == 4:
-        modificar_nota()
-    elif opcion == 5:
-        eliminar_alumno()
-    elif opcion == 6:
-        modificar_datos()
-    elif opcion == 7:
-        salir()
-    else:
+    try:
+        opcion = int(input("Ingrese una opcion: \n"))
+        if opcion == 1:
+            ingresar_alumno()
+        elif opcion == 2:
+            mostrar_alumnos()
+        elif opcion == 3:
+            agregar_nota()
+        elif opcion == 4:
+            modificar_nota()
+        elif opcion == 5:
+            eliminar_alumno()
+        elif opcion == 6:
+            modificar_datos()
+        elif opcion == 7:
+            salir()
+        else:
+            print("Opcion incorrecta")
+    except ValueError:
         print("Opcion incorrecta")
-
 print("Adios, vuelve pronto.")
 
         
