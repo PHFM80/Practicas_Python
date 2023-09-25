@@ -16,7 +16,8 @@ while True:
             m_a.ingresar_alumno()
             print (m_a.alumno)
             print (m_a.notas)
-            
+            m_a.cargar_alumno_a_txt()
+        
         elif opc == 2:
             #m_a.modificar_alumno()
             pass
