@@ -17,8 +17,5 @@ class alumnos:
         
     
 
-alumno = []
-nota =[]
-
 
 

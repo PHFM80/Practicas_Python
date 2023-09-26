@@ -1,4 +1,4 @@
-import metodos_alumnos as m_a
+import ingresos_alumnos as i_a
 
 print ("Menu para ingresar, modificar, eliminar, alumnos y sus notas.")
 
@@ -12,11 +12,9 @@ while True:
                      "\t5. Agreagr notas.\n"
                      "\t6. Ver Alumno.\n"
                      "\t10. Salir.\n"))
+    
         if opc == 1:
-            m_a.ingresar_alumno()
-            print (m_a.alumno)
-            print (m_a.notas)
-            m_a.cargar_alumno_a_txt()
+            i_a.ingresar_alumno()
         
         elif opc == 2:
             #m_a.modificar_alumno()
@@ -47,8 +45,9 @@ while True:
 
     except ValueError:
         print ("\nOpcion incorrecta. \n" 
-               "Ustede ingreso una letra, debe ingresar un número.\n"
-                "Ingrese una opcion correcta\n")      
+              "Ustede ingreso una letra, debe ingresar un número.\n"
+               "Ingrese una opcion correcta\n")    
+       
 
 
 
