@@ -1,4 +1,7 @@
 import ingresos_alumnos as i_a
+import modificar_alumnos as m_a
+import abrir_listas_e_imprimir as v_a
+
 
 print ("Menu para ingresar, modificar, eliminar, alumnos y sus notas.")
 
@@ -17,9 +20,8 @@ while True:
             i_a.ingresar_alumno()
         
         elif opc == 2:
-            #m_a.modificar_alumno()
-            pass
-
+            m_a.modificar_alumno()
+            
         elif opc == 3:
             #m_a.eliminar_alumno()
             pass
@@ -33,8 +35,7 @@ while True:
             pass
 
         elif opc == 6:
-            #m_a.ver_alumno()
-            pass
+            v_a.imprmir_alumnos()
 
         elif opc == 10:
             print ("\nSaliendo del programa\n")
