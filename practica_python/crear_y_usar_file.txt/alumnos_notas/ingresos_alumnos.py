@@ -7,7 +7,7 @@ def ingresar_alumno():
     alumno = []
     notas = []
 
-    ver_id = open ("archivos_txt/id.txt", "r")
+    ver_id = open ("archivos_txt/id.txt", "r+", encoding="utf-8")
     lista_id = ver_id.readlines()
     ver_id.close()
     for i in (lista_id):
@@ -67,47 +67,47 @@ def ingresar_alumno():
                 " no_ Para volver a cargar los datos.\n").lower()
     if op == "si":
         
-        file_id = open ("archivos_txt/id.txt", "a+")
+        file_id = open ("archivos_txt/id.txt", "a+", encoding="utf-8")
         file_id.write(str(id))
         file_id.write(" \n")
         file_id.close()
 
-        file_nombre1 = open ("archivos_txt/nombre1.txt", "a+")
+        file_nombre1 = open ("archivos_txt/nombre1.txt", "a+", encoding="utf-8")
         file_nombre1.write(nombre1)
         file_nombre1.write(" \n")
         file_nombre1.close()
 
-        file_nombre2 = open ("archivos_txt/nombre2.txt", "a+")
+        file_nombre2 = open ("archivos_txt/nombre2.txt", "a+", encoding="utf-8")
         file_nombre2.write(nombre2)
         file_nombre2.write(" \n")
         file_nombre2.close()
 
-        file_apellido1 = open ("archivos_txt/apellido1.txt", "a+")
+        file_apellido1 = open ("archivos_txt/apellido1.txt", "a+", encoding="utf-8")
         file_apellido1.write(apellido1)
         file_apellido1.write(" \n")
         file_apellido1.close()
 
-        file_apellido2 = open ("archivos_txt/apellido2.txt", "a+")
+        file_apellido2 = open ("archivos_txt/apellido2.txt", "a+", encoding="utf-8")
         file_apellido2.write(apellido2)
         file_apellido2.write(" \n")
         file_apellido2.close()
 
-        file_edad = open ("archivos_txt/edad.txt", "a+")
+        file_edad = open ("archivos_txt/edad.txt", "a+", encoding="utf-8")
         file_edad.write(str(edad))
         file_edad.write(" \n")
         file_edad.close()
 
-        file_dni = open ("archivos_txt/dni.txt", "a+")
+        file_dni = open ("archivos_txt/dni.txt", "a+", encoding="utf-8")
         file_dni.write(str(dni))
         file_dni.write(" \n")
         file_dni.close()
         
-        file_materia = open ("archivos_txt/materia.txt", "a+")
+        file_materia = open ("archivos_txt/materia.txt", "a+", encoding="utf-8")
         file_materia.write(materia)
         file_materia.write(" \n")
         file_materia.close()
 
-        file_notas = open ("archivos_txt/notas.txt", "a+")
+        file_notas = open ("archivos_txt/notas.txt", "a+", encoding="utf-8")
         for i in notas:
             nota1 = i
             file_notas.write(str(nota1))
