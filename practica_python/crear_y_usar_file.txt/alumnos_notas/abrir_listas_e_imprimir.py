@@ -102,8 +102,8 @@ def imprimir_un_alumno(pos):
     lista_materia = abrir_materia()
     lista_notas = abrir_notas()
 
-    print (f"\nid: {lista_id[pos]}  nombres: {lista_nombre1[pos]}{lista_nombre2[pos]} "
-        f"\tapellidos: {lista_apellido1[pos]}{lista_apellido2[pos]}\n"
+    print (f"\nid: {lista_id[pos]}  nombres: {lista_nombre1[pos]}  {lista_nombre2[pos]} "
+        f"\tapellidos: {lista_apellido1[pos]}  {lista_apellido2[pos]}\n"
         f"\tEdad: {lista_edad[pos]} DNI: {lista_dni[pos]} Materia: {lista_materia[pos]}\n"
         f"\tNotas: {lista_notas[pos]}\n")
 
@@ -120,8 +120,8 @@ def imprmir_alumnos():
     lista_notas = abrir_notas()
 
     for pos in range(len(lista_id)):
-        print (f"\nid: {lista_id[pos]}  nombres: {lista_nombre1[pos]}{lista_nombre2[pos]} "
-        f"\tapellidos: {lista_apellido1[pos]}{lista_apellido2[pos]}\n"
+        print (f"\nid: {lista_id[pos]}  nombres: {lista_nombre1[pos]}  {lista_nombre2[pos]} "
+        f"\tapellidos: {lista_apellido1[pos]}  {lista_apellido2[pos]}\n"
         f"\tEdad: {lista_edad[pos]} DNI: {lista_dni[pos]} Materia: {lista_materia[pos]}\n"
         f"\tNotas: {lista_notas[pos]}\n")
 

@@ -5,7 +5,7 @@
 
 def ingresar_alumno():
     alumno = []
-    notas = []
+    lista_notas = []
 
     ver_id = open ("archivos_txt/id.txt", "r+", encoding="utf-8")
     lista_id = ver_id.readlines()
@@ -41,7 +41,9 @@ def ingresar_alumno():
     opc = int( input("Cuantas notas va a ingresar: "))
     for i in range(opc):
         nota = int( input(f"Ingrese la nota nro {i+1} del alumno: "))
-        notas.append(nota)
+        lista_notas.append(str(nota))
+        #lista_notas.append("\t")
+    notas = " -- ".join(lista_notas)
 
 # Guardar los datos cargados del alumno y borrar la lista alumno y notas
     print ("- - - - - - - - - - - - - - - - -")
@@ -58,8 +60,9 @@ def ingresar_alumno():
     print (f"{a}) Nombre 1: {b} \tNombre 2: {c}\n"
             f"Apellido 1: {d} \tapellido 2: {e}\n"
             f"Edad: {f} \tDNI: {g} \tMateria: {h}")
-    for i in range(len(notas)):
-        print (f"{i+1}) nota: {notas[i]}")
+    for i in range(len(lista_notas)):
+        print (f"{i+1}) nota: {lista_notas[i]}")
+        print (notas)
     
     print ("- - - - - - - - - - - - - - - - -")
     op = input ("¿Desea guardar los datos ingresados? \n "
@@ -108,10 +111,7 @@ def ingresar_alumno():
         file_materia.close()
 
         file_notas = open ("archivos_txt/notas.txt", "a+", encoding="utf-8")
-        for i in notas:
-            nota1 = i
-            file_notas.write(str(nota1))
-            file_notas.write(" \t")    
+        file_notas.write(notas)
         file_notas.write("\n")
         file_notas.close()
 
