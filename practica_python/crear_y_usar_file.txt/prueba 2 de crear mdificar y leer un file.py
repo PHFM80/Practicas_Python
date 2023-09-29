@@ -101,15 +101,14 @@ while True:
         
         
         lista_nombres.pop(posicion)
-        #lista_nombres.append(" ")
+        
         
         print ("lista con el nombre borrado")
         print (f"largo de la lista {len(lista_nombres)}")
         print (lista_nombres)
 
         #Esto es para guardar cada campo de la lista en una linea del archivo Txt
-        archivo_nombres = open("nombres.txt", "w")
-        #archivo_nombres.seek(0)
+
         for i in range(len(lista_nombres)):
             archivo_nombres.write(lista_nombres[i])            
 

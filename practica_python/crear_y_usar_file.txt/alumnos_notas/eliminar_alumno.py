@@ -1,6 +1,7 @@
 import abrir_listas_e_imprimir as a_l_i
 
-def modificar_alumno():
+
+def eliminar_alumno():
     
     print ("\nVea primero la lista de alumnos.")
     while True:
@@ -10,9 +11,10 @@ def modificar_alumno():
                     "V volver.\n")
         opc = opc.upper()
         if opc == "C":
-            select_id = int (input("Seleccione la ID del alumno a modificar: \n"))
+            select_id = int (input("Seleccione la ID del alumno a eliminar: \n"))
             pos = select_id - 1
             a_l_i.imprimir_un_alumno(pos)
+            
             lista_id = a_l_i.abrir_id()
             lista_nombre1 = a_l_i.abrir_nombre1()
             lista_nombre2 = a_l_i.abrir_nombre2()
@@ -24,30 +26,15 @@ def modificar_alumno():
             lista_notas = a_l_i.abrir_notas()
 
             #Ingresando los datos nuevos del alumno selecccionado
-            nombre1 = input ("Ingrese el 1er nombre nuevamente: ")
-            nombre2 = input ("Ingrese el 2do nombre nuevamente: ")
-            apellido1 = input ("Ingrese el 1er apellido nuevamente: ")
-            apellido2 = input("Ingrese el 2do apellido nuevamente: ")
-            edad = input("Ingrese la edad nuevamente: ")
-            dni = input("Ingrese la dni nuevamente: ")
-            materia = input("Ingrese la materia nuevamente: ")
-            lista_notas2 = []
-            opc = int( input("Cuantas notas va a ingresar nuevamente: "))
-            for i in range(opc):
-                nota = int( input(f"Ingrese la nota nro {i+1} del alumno: "))
-                lista_notas2.append(str(nota))
-            notas2 = " -- ".join(lista_notas2)
+            nombre1 = ""
+            nombre2 = ""
+            apellido1 = ""
+            apellido2 = ""
+            edad = ""
+            dni = ""
+            materia = ""
+            notas2 = ""
 
-            print (f"\nPara la id: {lista_id[pos]}\n"
-                    "\t\tDatos anteriores \tDatos Actuales\n"
-                    f"Nombre 1:\t {lista_nombre1[pos]} \t\t {nombre1}\n"
-                    f"Nombre 2:\t {lista_nombre2[pos]} \t\t {nombre2}\n"
-                    f"Apellido 1:\t {lista_apellido1[pos]} \t\t {apellido1}\n"
-                    f"Apellido 2:\t {lista_apellido2[pos]} \t\t {apellido2}\n"
-                    f"edad:\t\t {lista_edad[pos]} \t\t\t {edad}\n"
-                    f"DNI:\t\t {lista_dni[pos]} \t\t {dni}\n"
-                    f"Materia:\t {lista_materia[pos]} \t\t {materia}\n"
-                    f"Notas:\t\t {lista_notas[pos]} \t\t {notas2}\n")
             # Agregando los datos nuevos a las listas
             lista_nombre1.pop(pos)
             lista_nombre1.insert(pos, nombre1)
@@ -74,7 +61,7 @@ def modificar_alumno():
             lista_notas.insert(pos, notas2)
 
             #pasando los datos de las listas a los txt
-            opc = input ("¿Esta seguro de los cambios a realizar?\n"
+            opc = input ("¿Esta seguro de eliminar al alumno?\n"
                          "Luego no se podran revertir los cambios.\n"
                          "Si esta seguro presione\n"
                          " si\n"
@@ -136,15 +123,7 @@ def modificar_alumno():
                     arch_notas.write(lista_notas[i])
                     arch_notas.write("\n")
                 arch_notas.close()
-                break
-
-
-            elif opc == "NO":
-                print ("Volviendo al menu anterior.\n")
-                break
-            else:
-                print ("Ingrese una opcion correcta.")
-
+            break
 
         elif opc == "V":
             print ("Volviendo al menu principal")
@@ -152,10 +131,3 @@ def modificar_alumno():
         
         else:
             print ("Ingrese una opcion correcta")
-        
-    
-
-
-
-
-
