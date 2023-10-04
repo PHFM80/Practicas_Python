@@ -12,3 +12,5 @@ class persona:
 
         print (f"Se ha creado una persona nueva.  ID: {self.id}  Nombre: {self.nomb1}")
 
+    def __str__(self):
+        return " {} {} {} {} {} {} {} {} ".format(self.id, self.nomb1, self.nomb2, self.ape1, self.ape2, self.dni, self.edad, self.fNac)

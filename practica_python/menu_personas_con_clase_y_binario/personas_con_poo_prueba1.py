@@ -11,7 +11,7 @@ class persona:
         print (f"Se ha creado una persona nueva cuyo nombre es: {self.nombre}")
 
     def __str__(self):
-        return "{} {} {} ".format(self.nombre, self.edad, self.sexo)
+        return "{} {} {}".format(self.nombre, self.edad, self.sexo)
         
 class lista_personas:
 
@@ -51,8 +51,11 @@ class lista_personas:
 
 
 miListaPersonas = lista_personas()
-personita = persona("martin", 32, "masc")
-miListaPersonas.agregarPersona(personita)
-personita = persona("marcela", 52, "fem")
-miListaPersonas.agregarPersona(personita)
+
+# personita = persona("martin", 32, "masc")
+# miListaPersonas.agregarPersona(personita)
+
+# personita = persona("marcela", 52, "fem")
+# miListaPersonas.agregarPersona(personita)
+
 miListaPersonas.mostrarFicheroExterno()

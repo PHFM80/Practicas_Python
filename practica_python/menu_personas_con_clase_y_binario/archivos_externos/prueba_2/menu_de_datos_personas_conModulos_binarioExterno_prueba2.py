@@ -17,7 +17,7 @@ while True:
             pass
         
         elif opc == 2:
-            pass
+            mm.listaPrincipalDePersonas.mostrar_fichero_externo()
         
         elif opc == 3:
             pass
@@ -26,7 +26,7 @@ while True:
             pass
         
         elif opc == 5:
-            print ("Saliendo del programa...\n"
+            print ("\nSaliendo del programa...\n"
                 "\t\t\t\tD & T\n"
                 "\t\t\tPropuestas Digitales\n")
             break
