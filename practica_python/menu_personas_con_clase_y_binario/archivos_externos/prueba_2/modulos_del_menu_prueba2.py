@@ -34,7 +34,7 @@ class listaDePersonas:
         print ("las personas en el fichero externo son: ")
         for i in self.persona:
             print (i)
-        print (f"la numero de la ultima persona es: {len(self.persona)}")
+        print (f"El numero de la ultima persona es: {len(self.persona)}")
 
     def desarmar_e_iterar_datos():
         
