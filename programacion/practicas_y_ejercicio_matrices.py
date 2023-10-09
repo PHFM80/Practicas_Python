@@ -1,25 +1,25 @@
 import random
 
-# lista1 = ["pablo", "gabriel", "matias", "rafael", "sofia", "Franco"]
-# lista1_1 = [1, 2, 3, 4, 5, 6]
-# lista1_2 = [42, 35, 20, 21, 19, 22]
+lista1 = ["pablo", "gabriel", "matias", "rafael", "sofia", "Franco"]
+lista1_1 = [1, 2, 3, 4, 5, 6]
+lista1_2 = [42, 35, 20, 21, 19, 22]
 
-# matriz = []
+matriz = []
 
-# for i in range(len(lista1)):
-#     datitos = []
-#     datitos.append(lista1_1[i])
-#     datitos.append(lista1[i])
-#     datitos.append(lista1_2[i])
-#     print (datitos)
-#     matriz.append(datitos)
+for i in range(len(lista1)):
+    datitos = []
+    datitos.append(lista1_1[i])
+    datitos.append(lista1[i])
+    datitos.append(lista1_2[i])
+    print (datitos)
+    matriz.append(datitos)
     
-# print (f"esta es la matriz: \n{matriz}")
-# print ("")
+print (f"esta es la matriz: \n{matriz}")
+print ("")
 
-# print("\nmatriz en forma de matriz con corchetes\n")
-# for i in matriz:
-#     print (i)
+print("\nmatriz en forma de matriz con corchetes\n")
+for i in matriz:
+    print (i)
 
 # print ("\n Matriz en forma de matriz sin corchetes.\n")
 # print ("id\tnombre  \tedad")
