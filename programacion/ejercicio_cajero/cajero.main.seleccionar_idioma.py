@@ -5,7 +5,6 @@ from time import sleep
 
 
 while True:
-    sleep(3)
     system("cls")
     try:
         
@@ -26,9 +25,13 @@ while True:
                             "\t\t\t\tD & T\n"
                             "\t\t\tPropuestas Digitales\n"
                             "\t\t\t\t\t\tBY Pablo Flores\n")
+            sleep(5)
+            system ("cls")
             break
         else:
             print ("Seleccione una opcion valida.\n")
+            sleep(3)
+            system ("cls")
     
     except ValueError:
         print ("Ingreso una letra.\nYou entered a letter.\n"
