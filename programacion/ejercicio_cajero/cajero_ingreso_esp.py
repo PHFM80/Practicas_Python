@@ -1,3 +1,4 @@
+from mis_paquetes.salir_del_sistema_dyt_by_pablo_flores import salir_dyt_by_pf
 import mod_cajero_crear_usuario_y_contrasena as c_u_c
 from os import system
 from time import sleep
@@ -28,15 +29,7 @@ def ingreso():
                 c_u_c.crear_user_cont()
                 
             elif opc == 3:
-                system ("cls")
-                print ("\nSaliendo del programa...\n"
-                                "\t\t\t\tD & T\n"
-                                "\t\t\tPropuestas Digitales\n"
-                                "\t\t\t\t\t\tBY Pablo Flores\n")
-                sleep(5)
-                system ("cls")
-                exit (0)
-                #break
+                salir_dyt_by_pf()
                 
             else:
                 print ("Ingrese una opcion valida.\n")

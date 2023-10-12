@@ -31,6 +31,6 @@ lista_apelidos_1 = []
 lista_edades_1 = []
 for i in lista:
     for j in range(len(i)):
-          
+        pass
                    
         

@@ -1,8 +1,13 @@
 from os import system
 from time import sleep
+from mis_paquetes.salir_del_sistema_dyt_by_pablo_flores import salir_dyt_by_pf
+import pickle
 
-
-def crear_user_cont():
+usuariosConContrasenias = []
+usuarios = []
+contrasenias = []
+def crear_user_cont(self):
+    
     system ("cls")
     print ("Bienvenido al servicio de Cajeros Automaticos del Banco IES 9023.\n"
         "--  --  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\n"
@@ -17,7 +22,21 @@ def crear_user_cont():
             "\t3_ Para salir del sistema.\n"))
         try:
             if opc == 1:
-                user = input ("Por favor ingrese su usuario.\n")
+                #verificacion de usuario inexistente
+                user = input ("Por favor ingrese un nombre de usuario.\n")
+                listaDeUsuarios = open ("archivos_cajero\datos_de_usuarios_con_contrasenias", "ab+")
+                listaDeUsuarios.seek(0)
+                try:
+                    self.usuariosConContrasenias = pickle.load(listaDeUsuarios)
+                    print (f"se cargaron {len(self.usuariosConContrasenias)} desde el fichero externo")
+                except:
+                    print ("El fichero esta vacio")
+                finally:
+                    listaDeUsuarios.close()
+
+
+
+                #creacion de contraseña
                 contrasena = input ("Por favor ingrese su contraseña.\n"
                                     "La misma debera contar con:\n"
                                     "\t1) Minimo 12 caracteres.\n"
@@ -52,14 +71,7 @@ def crear_user_cont():
                 break
                 
             elif opc == 3:
-                system ("cls")
-                print ("\nSaliendo del programa...\n"
-                                "\t\t\t\tD & T\n"
-                                "\t\t\tPropuestas Digitales\n"
-                                "\t\t\t\t\t\tBY Pablo Flores\n")
-                sleep(5)
-                system ("cls")
-                exit (0)
+                salir_dyt_by_pf()
             else:
                 print ("Ingrese una opcion correcta.")
                 system ("cls")

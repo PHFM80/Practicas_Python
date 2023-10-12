@@ -1,4 +1,5 @@
 import cajero_ingreso_esp as cie
+from mis_paquetes.salir_del_sistema_dyt_by_pablo_flores import salir_dyt_by_pf
 from os import system
 from time import sleep
 
@@ -20,14 +21,8 @@ while True:
         elif opc == 2:
             pass
         elif opc == 3:
-            system ("cls")
-            print ("\nSaliendo del programa...\n"
-                            "\t\t\t\tD & T\n"
-                            "\t\t\tPropuestas Digitales\n"
-                            "\t\t\t\t\t\tBY Pablo Flores\n")
-            sleep(5)
-            system ("cls")
-            break
+            salir_dyt_by_pf()
+           
         else:
             print ("Seleccione una opcion valida.\n")
             sleep(3)
