@@ -1,80 +1,109 @@
-from os import system
-from time import sleep
-from mis_paquetes.salir_del_sistema_dyt_by_pablo_flores import salir_dyt_by_pf
 import pickle
 
-usuariosConContrasenias = []
-usuarios = []
-contrasenias = []
-def crear_user_cont(self):
-    
-    system ("cls")
-    print ("Bienvenido al servicio de Cajeros Automaticos del Banco IES 9023.\n"
-        "--  --  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\n"
-            "Crear usuario y contraseña.\n"
-        "--  --  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\n"
-        "\n")
+class classUsuario:
 
-    while True:
-        opc = int(input ("Seleccione una opción:\n"
-        "\t1_ Para crear usuario y contraseña.\n"
-            "\t2_ Para volver al menu anterior.\n"
-            "\t3_ Para salir del sistema.\n"))
+    def __init__(self, usuario, password, nombre, apellido):
+
+        self.usuario = usuario
+        self.password = password
+        self.nombre = nombre
+        self.apellido = apellido
+
+    def __str__(self):
+        return "{} {} {} {}".format(self.usuario, self.password, self.nombre, self.apellido)
+        
+class lista_usuarios:
+
+    personas = []
+
+    def __init__(self):
+        listaDePersonas = open ("archivos_cajero\datos_de_usuarios", "ab+")
+        listaDePersonas.seek(0)
         try:
-            if opc == 1:
-                #verificacion de usuario inexistente
-                user = input ("Por favor ingrese un nombre de usuario.\n")
-                listaDeUsuarios = open ("archivos_cajero\datos_de_usuarios_con_contrasenias", "ab+")
-                listaDeUsuarios.seek(0)
-                try:
-                    self.usuariosConContrasenias = pickle.load(listaDeUsuarios)
-                    print (f"se cargaron {len(self.usuariosConContrasenias)} desde el fichero externo")
-                except:
-                    print ("El fichero esta vacio")
-                finally:
-                    listaDeUsuarios.close()
+            self.personas = pickle.load(listaDePersonas)
+            print (f"se cargaron {len(self.personas)} desde el fichero externo")
+        except:
+            print ("El fichero esta vacio")
+        finally:
+            listaDePersonas.close()
+            del(listaDePersonas)
 
 
+    def agregarPersona(self, p):
+        self.personas.append(p)
+        self.guardarPersonasEnFicheroExterno()
 
-                #creacion de contraseña
-                contrasena = input ("Por favor ingrese su contraseña.\n"
-                                    "La misma debera contar con:\n"
-                                    "\t1) Minimo 12 caracteres.\n"
-                                    "\t2) Al menos una mayuscula, una miniscula y un caracter especial.\n"
-                                    "\t3) No puede contener espacios en blanco.\n")
-
-                if len(contrasena) < 10:
-                    print ("La contraseña debe tener 13 caracteres o mas. \nContraseña Insegura.\n")
-                elif not any ([c.isdigit() for c in contrasena]):
-                    print ("La contraseña debe tener al menos un número.\n Contraseña Insegura")
-                elif not any ([c.islower() for c in contrasena]):
-                    print ("La contraseña debe tener letras minusculas.\n Contraseña Insegura")
-                elif not any ([c.isupper() for c in contrasena]):
-                    print ("La contraseña debe tener letras mayusculas.\n Contraseña Insegura")
-                elif (contrasena.count(" ")>0):
-                    print ("La contraseña no debe tener espacios.\n Contraseña Insegura")
-                else:
-                    system ("cls")
-                    print ( "\n::::::::::::::::::::::"
-                            f"\nUsuario: {user} y\n"
-                            f"Contraseña: {contrasena}.\n"
-                            "Creados exiosamente.\n"
-                            ":::::::::::::::::::::::\n")
-                    sleep(6)
-                    system ("cls")
-                    break
-            elif opc == 2:
-                system ("cls")
-                print ("\nVolviendo al menu anterior...\n")
-                sleep(5)
-                system ("cls")
-                break
-                
-            elif opc == 3:
-                salir_dyt_by_pf()
+    def mostrarPersonas(self):
+        for i in self.personas:
+            print (i)
+    
+    def guardarPersonasEnFicheroExterno(self):
+        listaDePersonas = open("archivos_cajero\datos_de_usuarios", "wb")
+        pickle.dump(self.personas, listaDePersonas)
+        listaDePersonas.close()
+        del (listaDePersonas)
+    
+    def mostrarFicheroExterno (self):
+        print ("las personas en el fichero externo son: ")
+        for i in (self.personas):
+            print (i)
+  
+    def compararUsuario(self):
+        while True:
+            usuario = input("Ingrese un nombre de usuario: \n")
+            if any(i.usuario == usuario for i in self.personas):
+                print("El usuario ya existe. Deberá crear un nombre de usuario nuevo.")
             else:
-                print ("Ingrese una opcion correcta.")
-                system ("cls")
-        except ValueError:
-            print ("\nUsted ingreso una letra.\n"
-                    "Debe ingresar un número.\n")
+                print("Usuario válido. Puede continuar.")
+                break
+        return usuario
+
+
+listaPrincipalDeUsuarios = lista_usuarios()
+
+
+#modulo pala verificacion de la creacion de la contraseña
+def verificarPassword():
+    while True:
+        print("Ingrese una contraseña y el programa le indicará si es segura o no.\n"
+              "La contraseña debe contener mínimo 10 caracteres.\n"
+              "Debe contener al menos una minúscula, una mayúscula y un número.\n"
+              "No puede haber espacios en blanco en la contraseña.\n")
+        contr = input("Ingrese una contraseña segura: \n")
+
+        if len(contr) < 10:
+            print("La contraseña debe tener 10 caracteres o más. Contraseña Insegura.")
+        elif not any(c.isdigit() for c in contr):
+            print("La contraseña debe tener al menos un número. Contraseña Insegura.")
+        elif not any(c.islower() for c in contr):
+            print("La contraseña debe tener letras minúsculas. Contraseña Insegura.")
+        elif not any(c.isupper() for c in contr):
+            print("La contraseña debe tener letras mayúsculas. Contraseña Insegura.")
+        elif ' ' in contr:
+            print("La contraseña no debe tener espacios. Contraseña Insegura.")
+        else:
+            print("La contraseña es segura.")
+            return contr
+
+
+#Modulo par la creacion del usuario y la contraseña.  evitando la duplicacion de usuario
+# y verificando la contraseña segura.
+def crear_usuario():
+    mijo = listaPrincipalDeUsuarios.compararUsuario()
+    usuario = mijo
+    #usuario = listaPrincipalDeUsuarios.compararUsuario()
+    #primero verificar la unicidad del nombre de usuario, luego seguir con la carga de datos.
+    contr = verificarPassword()
+    password = contr
+    #realizar el correcto ingreso de la contraseña
+    nombre = input ("Ingrese su nombre:\n")
+    apellido = input ("Ingrese su apellido:\n")
+
+    usuario1 = classUsuario(usuario, password, nombre, apellido)
+    listaPrincipalDeUsuarios.agregarPersona(usuario1) 
+
+
+
+#Modulo para ingresar al cajero con un usuario ya existente
+def ingresar_al_cajero ()
+    pass

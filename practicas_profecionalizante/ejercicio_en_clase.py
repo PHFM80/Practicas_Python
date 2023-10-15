@@ -62,9 +62,9 @@ from os import system
 
 # 
 system("cls")
-nro = float(uniform(0, 9))
+nro = round(float(uniform(0, 9)), 1)
 
-print (f"El terremoto registrado en la escala de ritcher es: {round(nro, 1)}\n")
+print (f"El terremoto registrado en la escala de ritcher es: {nro}\n")
 if nro < 4:
     print ("Sin Daños\n")
 elif nro >=4 and nro <=5.9:

@@ -5,7 +5,7 @@ from time import sleep
 
 
 def ingreso():
-    sleep(3)
+    sleep(1)
     system("cls")
     
     try:
@@ -23,10 +23,10 @@ def ingreso():
                         "\n"))
             print ("")
             if opc == 1:
-                #crear_usuario_y_contrasenia()
+                c_u_c.ingresar_al_cajero()
                 pass
             elif opc == 2:
-                c_u_c.crear_user_cont()
+                c_u_c.crear_usuario()
                 
             elif opc == 3:
                 salir_dyt_by_pf()

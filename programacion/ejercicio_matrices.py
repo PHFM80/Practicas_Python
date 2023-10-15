@@ -1,10 +1,15 @@
 from random import randint
-print ("Ingresar numeros en una matriz cuadrada n x n, en donde n es un numero positivo menor que 10 que se ingresara por teclado.\n  El programa debera mostrar:\n"
+from os import system
+from mis_paquetes.salir_del_sistema_dyt_by_pablo_flores import salir_dyt_by_pf
+
+
+
+while True:
+
+    print ("Ingresar numeros en una matriz cuadrada n x n, en donde n es un numero positivo menor que 10 que se ingresara por teclado.\n  El programa debera mostrar:\n"
 "A) El promedio de los elementos de la diagonal principal.\n"
 "B) El promedio de cada una de las filas almacenando los resultados en un nuevo vector unidimencional\n"
 "C) Mostrar la matriz.\n")
-
-while True:
     try:
         largo_n = int (input("Ingrese el largo de de la matriz cuadrada.\n"
                      "el cual debe ser un numero positivo menor a 10\n")) 
@@ -47,13 +52,12 @@ while True:
                          "SI_ para repetir.\n"
                          "NO_ para salir.\n").upper()
             if opc == "SI":
+                system("cls")
                 pass
+                
+
             elif opc == "NO":
-                print ("\nSaliendo del programa...\n"
-                    "\t\t\t\tD & T\n"
-                    "\t\t\tPropuestas Digitales\n"
-                    "\t\t\t\t\t\tBY Pablo Flores\n")
-                break
+                salir_dyt_by_pf()
                 
         else:
             print ("Ingrese un valor adecuado")
