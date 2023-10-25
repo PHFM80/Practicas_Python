@@ -1,8 +1,9 @@
-import cajero_ingreso_esp as cie
+
 from mis_paquetes.salir_del_sistema_dyt_by_pablo_flores import salir_dyt_by_pf
 from os import system
 from time import sleep
-import mod_cajero_crear_usuario_y_contrasena as c_u_c
+from ejercicio_cajero_esp import menu_principal
+from ejercicio_cajero_eng import menu_principal_eng
 
 
 while True:
@@ -17,9 +18,9 @@ while True:
                     "2_ For english.\n"
                     "3_ Salir del sistema.  Get out of the system.\n"))
         if opc == 1:
-            cie.ingreso()
+            menu_principal()
         elif opc == 2:
-            pass
+            menu_principal_eng()
         elif opc == 3:
             salir_dyt_by_pf()
            

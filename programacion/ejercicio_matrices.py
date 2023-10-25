@@ -43,7 +43,7 @@ while True:
             #promedio y listas nuevas de las filas
             for i in range (len(matriz)) :
                 print (f"\nLa fila nro {i} de la matriz es: {matriz[i]}\n"
-                       f"Y supromedio es: {(sum(matriz[i])/len(matriz[i]))}\n")
+                       f"Y su promedio es: {(sum(matriz[i])/len(matriz[i]))}\n")
 
 
 
