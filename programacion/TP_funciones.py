@@ -32,16 +32,16 @@ def validarCuit(cuit):
     if len(cuit) != 13:
         return False
     
+    # 2. Solo se permiten números excepto los guiones -
+    permitidas = set("0123456789-")
+    if not all(char in permitidas for char in cuit):
+        return False
+    
     # 3. Los guiones deben estar en las posiciones correctas
-    # Las posiciones 2 y 11 deben ser guiones (-)
-    elif cuit[2] != '-' or cuit[11] != '-':
+    if cuit[2] != '-' or cuit[11] != '-':
         return False
 
-    # 2. Solo se permiten números excepto los guiones -
-    if not cuit.isdigit():
-        return False
-    else:
-        return True
+    return True
 
 #cuit = input("Ingrese su numero de cuit con el siguiente formato (xx-xxxxxxxx-x):\n")
 cuit = "20-12345678-9"
