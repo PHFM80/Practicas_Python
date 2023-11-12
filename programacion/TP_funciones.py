@@ -38,16 +38,29 @@ def validarCuit(cuit):
         return False
     
     # 3. Los guiones deben estar en las posiciones correctas
-    if cuit[2] != '-' or cuit[11] != '-':
+    if cuit[2] != '-' and cuit[11] != '-':
         return False
-
+    
+    # #4. validar el resto de los caracteres como numeros y eliminar los guinones
+    cuit = cuit.replace ("-", "")
+    if len(cuit) != 11:
+        return False
+    for char in cuit:
+        if not char.isdigit():
+            return False
+    
     return True
 
 #cuit = input("Ingrese su numero de cuit con el siguiente formato (xx-xxxxxxxx-x):\n")
 cuit = "20-12345678-9"
 resultado = validarCuit(cuit)
-print(resultado)
-
+print(f"El cuit: {cuit}, es: {resultado}")
+cuit = "20--2345678-9"
+resultado = validarCuit(cuit)
+print(f"El cuit: {cuit}, es: {resultado}")
+cuit = "20123456789"
+resultado = validarCuit(cuit)
+print(f"El cuit: {cuit}, es: {resultado}")
 
 
 
