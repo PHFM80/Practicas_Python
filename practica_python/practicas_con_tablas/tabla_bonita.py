@@ -1,6 +1,6 @@
 from rich.table import Table
 #from rich.console import Console
-import random
+#import random
 import time
 from rich.live import Live
 
